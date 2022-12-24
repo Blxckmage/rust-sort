@@ -1,11 +1,9 @@
 pub fn heap_sort(list: &mut Vec<i32>) {
-    // Build a max heap
     let mut n = list.len();
     for i in (0..n / 2).rev() {
         heapify(list, n, i);
     }
 
-    // Extract elements from the heap one by one
     for i in (1..n).rev() {
         list.swap(0, i);
         n -= 1;
