@@ -16,7 +16,15 @@ fn main() {
     println!("Test List: {:?}", list);
     println!("");
 
-    // BUBBLE SORT
+    test_bubble_sort(&list);
+    test_insertion_sort(&list);
+    test_heap_sort(&list);
+    test_quick_sort(&list);
+    test_selection_sort(&list);
+    test_bucket_sort(&list);
+}
+
+fn test_bubble_sort(list: &Vec<i32>) {
     let bub_start = Instant::now();
     let bubble_sorted = bubble_sort(list.clone());
     let bub_elapsed = bub_start.elapsed();
@@ -25,8 +33,9 @@ fn main() {
     println!("{:?}", bubble_sorted);
     println!("Elapsed time: {:?}", bub_elapsed);
     println!("");
+}
 
-    // INSERTION SORT
+fn test_insertion_sort(list: &Vec<i32>) {
     let ins_start = Instant::now();
     let insertion_sorted = insertion_sort(list.clone());
     let ins_elapsed = ins_start.elapsed();
@@ -35,8 +44,9 @@ fn main() {
     println!("{:?}", insertion_sorted);
     println!("Elapsed time: {:?}", ins_elapsed);
     println!("");
+}
 
-    // HEAP SORT
+fn test_heap_sort(list: &Vec<i32>) {
     let hea_start = Instant::now();
     let mut heap_sorted = list.clone();
     heap_sort(&mut heap_sorted);
@@ -46,8 +56,9 @@ fn main() {
     println!("{:?}", heap_sorted);
     println!("Elapsed time: {:?}", hea_elapsed);
     println!("");
+}
 
-    // QUICK SORT
+fn test_quick_sort(list: &Vec<i32>) {
     let qui_start = Instant::now();
     let quick_sorted = quick_sort(list.clone());
     let qui_elapsed = qui_start.elapsed();
@@ -56,18 +67,20 @@ fn main() {
     println!("{:?}", quick_sorted);
     println!("Elapsed time: {:?}", qui_elapsed);
     println!("");
+}
 
-    // SELECTION SORT
+fn test_selection_sort(list: &Vec<i32>) {
     let sel_start = Instant::now();
     let selection_sorted = selection_sort(list.clone());
     let sel_elapsed = sel_start.elapsed();
 
-    println!("| SELECTIOB SORT |");
+    println!("| SELECTION SORT |");
     println!("{:?}", selection_sorted);
     println!("Elapsed time: {:?}", sel_elapsed);
     println!("");
+}
 
-    // BUCKET SORT
+fn test_bucket_sort(list: &Vec<i32>) {
     let buc_start = Instant::now();
     let bucket_sorted = bucket_sort(list.clone());
     let buc_elapsed = buc_start.elapsed();
