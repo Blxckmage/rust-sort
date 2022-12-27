@@ -8,8 +8,8 @@ fn main() {
     // LIST TEST NUMBER
     let mut list: Vec<i32> = Vec::new();
     let mut rng = thread_rng();
-    let range = Uniform::new_inclusive(0, 15);
-    for _ in 0..15 {
+    let range = Uniform::new_inclusive(0, 20);
+    for _ in 0..=20 {
         list.push(rng.sample(range));
     }
 
@@ -22,6 +22,7 @@ fn main() {
     test_quick_sort(&list);
     test_selection_sort(&list);
     test_bucket_sort(&list);
+    test_merge_sort(&list);
 }
 
 fn test_bubble_sort(list: &Vec<i32>) {
@@ -88,5 +89,16 @@ fn test_bucket_sort(list: &Vec<i32>) {
     println!("| BUCKET SORT |");
     println!("{:?}", bucket_sorted);
     println!("Elapsed time: {:?}", buc_elapsed);
+    println!("");
+}
+
+fn test_merge_sort(list: &Vec<i32>) {
+    let mer_start = Instant::now();
+    let merge_sorted = merge_sort(list.clone());
+    let mer_elapsed = mer_start.elapsed();
+
+    println!("| MERGE SORT |");
+    println!("{:?}", merge_sorted);
+    println!("Elapsed time: {:?}", mer_elapsed);
     println!("");
 }
